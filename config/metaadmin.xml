@@ -1,0 +1,29 @@
+<meta-admin>
+  <admin HOST="127.0.0.1" PORT="6000" DATE="Wed Feb 27 09:30:49 EST 2008"/>
+  <aelist>
+    <ae HOST="127.0.0.1" PORT="5219" RISPORT="4007" NAME="greg"/>
+    <ae HOST="127.0.0.1" PORT="5219" NAME="greg2"/>
+    <ae HOST="127.0.0.1" PORT="5220" RISPORT="4008" ZIPPORT="5259" NAME="gregRemote"/>
+    <ae HOST="172.16.244.128" PORT="5220" RISPORT="4008" NAME="gregvmware"/>
+    <ae HOST="172.16.244.128" PORT="4096" NAME="RANDYEFILM"/>
+    <ae HOST="" PORT="4096" NAME="OSIRIX_RANDY"/>
+    <ae HOST="10.90.1.58" PORT="4119" RISPORT="4007" NAME="Bonn"/>
+  </aelist>
+  <stores>
+    <store ISACTIVE="true" AE="greg" NAME="greg">
+      <rules>
+        <storage ISACTIVE="false" ARG2="" ARG1="" TYPE="age">&#xa;</storage>
+        <storage ISACTIVE="false" ARG2="" ARG1="" TYPE="freespace">&#xa;</storage>
+        <polling ISACTIVE="false" ARG2="Stellaria" ARG1="120" END="24:00" START="00:00">&#xa;</polling>
+      </rules>
+    </store>
+    <store ISACTIVE="true" AE="gregRemote" NAME="gregRemote">
+      <rules>
+        <storage ISACTIVE="false" ARG2="" ARG1="" TYPE="age">&#xa;</storage>
+        <storage ISACTIVE="false" ARG2="" ARG1="" TYPE="freespace">&#xa;</storage>
+        <polling ISACTIVE="false" ARG2="Stellaria" ARG1="120" END="24:00" START="00:00">&#xa;</polling>
+      </rules>
+    </store>
+  </stores>
+  <proxies>&#xa;</proxies>
+</meta-admin>

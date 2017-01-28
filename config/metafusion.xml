@@ -1,0 +1,68 @@
+<metafusion>
+  <serverroles name="serverroles">
+    <role name="Verification" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="CTImageStorage" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="MRImageStorage" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="StudyRootQueryRetrieveInformationModelFIND" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="StudyRootQueryRetrieveInformationModelMOVE" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="StudyRootQueryRetrieveInformationModelGET" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="PatientRootQueryRetrieveInformationModelFIND" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="PatientRootQueryRetrieveInformationModelMOVE" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="PatientRootQueryRetrieveInformationModelGET" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="PatientStudyOnlyQueryRetrieveInformationModelFIND" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="PatientStudyOnlyQueryRetrieveInformationModelMOVE" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+    <role name="PatientStudyOnlyQueryRetrieveInformationModelGET" user="true" provider="true">
+      <syntax name="ExplicitVRLittleEndian" />
+    </role>
+  </serverroles>
+
+  <database name="dblocalhost">
+    <class>com.mysql.jdbc.Driver</class>
+    <url>jdbc:mysql://localhost/metafusion?user=matt&amp;password=matt</url>
+  </database>
+
+
+  <localstore name="greg" ae="greg" ae2="greg2" role="primary">
+    <forwardthreads>1</forwardthreads>
+    <storage name="storage" root="../LocalStore/data" />
+    <xpassword>medical</xpassword>
+    <batcart port="8080" altport="9100" />
+    <importerListener pollIntervalInMsec="30000" removeRecordAfterProcessing="false" />
+    <cmoveQuery type="imageuid"/> <!-- Options are imageid, imageuid or instanceNumber  (case insensitive) -->
+    <openOffice cmd="'/Applications/OpenOffice.org\ 2.4.app/Contents/MacOS/soffice'" port="8100"/> <!-- cmd provides the path to the soffice.exe (windows) or soffice (In Mac/Unix/Linux) file.  If port is left blank, it will default to 8100  -->
+    <ris port="4007" />
+    <richmedia dir="richmedia"/>
+    <archive type="primera" dir="/tmp/archive"/>
+    <primera device="bravoXRP" jobdir="/tmp/archive/primera" labeldir="/tmp/archive/primera/label"/> 
+    
+    <options storeDicomHeaders="true" auditLogDir="/data/log/audit" defaultLogVerbosity="1" daysToKeepLog="60" daysToKeepVlog="30" rsyncChunkSizeMB="5" daysToKeepServiceLog="30"/>
+    <soap port="9090" />
+    <dicomserver name="greg">
+      <INCLUDE name="serverroles" />
+    </dicomserver>
+    <INCLUDE name="dblocalhost" />
+  </localstore>
+
+</metafusion>
